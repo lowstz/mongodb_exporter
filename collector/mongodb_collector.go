@@ -1,8 +1,8 @@
 package collector
 
 import (
-	"github.com/dcu/mongodb_exporter/shared"
 	"github.com/golang/glog"
+	"github.com/lowstz/mongodb_exporter/shared"
 	"github.com/prometheus/client_golang/prometheus"
 )
 
@@ -24,14 +24,14 @@ func NewMongodbCollector(opts MongodbCollectorOpts) *MongodbCollector {
 }
 
 func (exporter *MongodbCollector) Describe(ch chan<- *prometheus.Desc) {
-	glog.Info("Describing groups")
+	glog.V(1).Info("Describing groups")
 	for _, group := range shared.Groups {
 		group.Describe(ch)
 	}
 }
 
 func (exporter *MongodbCollector) Collect(ch chan<- prometheus.Metric) {
-	glog.Info("Collecting Server Status")
+	glog.V(1).Info("Collecting Server Status")
 	exporter.collectServerStatus(ch)
 }
 

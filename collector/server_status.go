@@ -1,11 +1,12 @@
 package collector
 
 import (
+	"time"
+
 	"github.com/dcu/mongodb_exporter/shared"
 	"github.com/golang/glog"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
-	"time"
 )
 
 // ServerStatus keeps the data returned by the serverStatus() method.
@@ -127,7 +128,7 @@ func GetServerStatus(uri string) *ServerStatus {
 	session.SetMode(mgo.Eventual, true)
 	session.SetSocketTimeout(0)
 	defer func() {
-		glog.Info("Closing connection to database.")
+		glog.V(1).Info("Closing connection to database.")
 		session.Close()
 	}()
 
