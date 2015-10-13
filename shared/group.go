@@ -1,9 +1,6 @@
 package shared
 
-import (
-	"github.com/golang/glog"
-	"github.com/prometheus/client_golang/prometheus"
-)
+import "github.com/prometheus/client_golang/prometheus"
 
 var (
 	Groups = make(map[string]*Group)
@@ -212,7 +209,7 @@ func (group *Group) trackField(fieldName string, value float64) {
 	fieldDesc := GroupField(group.DescName, fieldName)
 	collectorType := fieldDesc.Type
 
-	glog.V(1).Infof("Setting %s(metrics)=%f (%s,%s)", group.Name, value, collectorType, fieldName)
+	// glog.V(1).Infof("Setting %s(metrics)=%f (%s,%s)", group.Name, value, collectorType, fieldName)
 	switch collectorType {
 	case "counter":
 		{
@@ -236,7 +233,7 @@ func (group *Group) trackFieldsVec(fields GroupFieldsMap, labels []string, value
 	metadata := fields["metadata"]
 
 	group.validateLabels(fields, labels)
-	glog.V(1).Infof("Setting %s(%s)=%f (%s=%v)", group.Name, metadata.Type, value, metadata.Labels, labels)
+	// glog.V(1).Infof("Setting %s(%s)=%f (%s=%v)", group.Name, metadata.Type, value, metadata.Labels, labels)
 	switch metadata.Type {
 	case "counter_vec":
 		{
