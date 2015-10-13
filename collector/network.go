@@ -1,7 +1,7 @@
 package collector
 
 import (
-	"github.com/dcu/mongodb_exporter/shared"
+	"github.com/lowstz/mongodb_exporter/shared"
 )
 
 //Network

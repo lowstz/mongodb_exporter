@@ -3,8 +3,8 @@ package collector
 import (
 	"time"
 
-	"github.com/dcu/mongodb_exporter/shared"
 	"github.com/golang/glog"
+	"github.com/lowstz/mongodb_exporter/shared"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
@@ -109,7 +109,7 @@ func (status *ServerStatus) Export(groupName string) {
 func exportData(exportable shared.Exportable, groupName string) {
 	if !shared.EnabledGroups[groupName] {
 		// disabled group
-		// glog.Infof("Group is not enabled: %s", groupName)
+		// glog.V(2).Infof("Group is not enabled: %s", groupName)
 		return
 	}
 
@@ -128,7 +128,7 @@ func GetServerStatus(uri string) *ServerStatus {
 	session.SetMode(mgo.Eventual, true)
 	session.SetSocketTimeout(0)
 	defer func() {
-		// glog.V(1).Info("Closing connection to database.")
+		// glog.V(2).Info("Closing connection to database.")
 		session.Close()
 	}()
 

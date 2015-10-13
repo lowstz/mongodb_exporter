@@ -1,7 +1,7 @@
 package collector
 
 import (
-	"github.com/dcu/mongodb_exporter/shared"
+	"github.com/lowstz/mongodb_exporter/shared"
 )
 
 // DurTiming is the information about durability returned from the server.

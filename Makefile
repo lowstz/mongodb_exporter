@@ -1,7 +1,7 @@
 test: bindata
-	go test github.com/dcu/mongodb_exporter/collector -cover -coverprofile=collector_coverage.out -short
+	go test github.com/lowstz/mongodb_exporter/collector -cover -coverprofile=collector_coverage.out -short
 	go tool cover -func=collector_coverage.out
-	go test github.com/dcu/mongodb_exporter/shared -cover -coverprofile=shared_coverage.out -short
+	go test github.com/lowstz/mongodb_exporter/shared -cover -coverprofile=shared_coverage.out -short
 	go tool cover -func=shared_coverage.out
 	@rm *.out
 
