@@ -3,10 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/dcu/mongodb_exporter/collector"
-	"github.com/dcu/mongodb_exporter/shared"
-	"github.com/prometheus/client_golang/prometheus"
 	"net/http"
+
+	"github.com/lowstz/mongodb_exporter/collector"
+	"github.com/lowstz/mongodb_exporter/shared"
+	"github.com/prometheus/client_golang/prometheus"
 )
 
 var (
